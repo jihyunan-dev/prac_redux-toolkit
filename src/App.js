@@ -1,5 +1,10 @@
 import { useDispatch, useSelector } from "react-redux";
-import { incrementByAmount } from "./redux/module/counter";
+import {
+  decrement,
+  decrementByAmount,
+  increment,
+  incrementByAmount,
+} from "./redux/module/counter";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -8,9 +13,10 @@ const App = () => {
   return (
     <>
       <h1>{count}</h1>
-      <button>increment</button>
-      <button>decrement</button>
-      <button onClick={() => dispatch(incrementByAmount(5))}>버튼!</button>
+      <button onClick={() => dispatch(increment())}>increment</button>
+      <button onClick={() => dispatch(decrement())}>decrement</button>
+      <button onClick={() => dispatch(incrementByAmount(5))}>+5</button>
+      <button onClick={() => dispatch(decrementByAmount(5))}>-5</button>
     </>
   );
 };
