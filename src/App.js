@@ -4,15 +4,16 @@ import {
   decrementByAmount,
   increment,
   incrementByAmount,
+  selectCounter,
 } from "./redux/module/counter";
 
 const App = () => {
   const dispatch = useDispatch();
-  const { count } = useSelector((state) => state.counter);
+  const counter = useSelector(selectCounter);
 
   return (
     <>
-      <h1>{count}</h1>
+      <h1>{counter}</h1>
       <button onClick={() => dispatch(increment())}>increment</button>
       <button onClick={() => dispatch(decrement())}>decrement</button>
       <button onClick={() => dispatch(incrementByAmount(5))}>+5</button>
